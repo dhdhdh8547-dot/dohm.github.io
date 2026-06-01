@@ -1,1 +1,74 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>도현민 자기소개 SPA</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; }
+    header { background: #333; color: white; padding: 1em; text-align: center; }
+    nav { display: flex; justify-content: center; background: #444; }
+    nav button { background: none; border: none; color: white; padding: 1em; cursor: pointer; font-size: 1em; }
+    nav button:hover { background: #555; }
+    main { padding: 2em; min-height: 80vh; }
+    img.profile { max-width: 200px; border-radius: 0; } 
+    @media (max-width:600px) {
+      nav { flex-direction: column; }
+      nav button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DHM profile</h1>
+  </header>
+  <nav>
+    <button onclick="navigate('introduce')">Introduce</button>
+    <button onclick="navigate('favoritebook')">Favorite book</button>
+    <button onclick="navigate('hobby')">Hobby</button>
+  </nav>
+  <main id="content">
+    
+  </main>
+
+  <script>
+    const pages = {
+      introduce: `
+        <h2>Introduce</h2>
+        <img src="KakaoTalk_20260601_121856942.jpg" alt="도현민" class="profile">
+        <p>안녕하세요, 저는 21살 도현민입니다. 강원대학교에서 2학년으로 컴퓨터 공학과를 재학중입니다. 현재는 전공보다는 인문학 지식에 매우 큰 흥미를 느껴 인문학을 공부하고 있습니다.
+           고민이 많은 요즘 입니다. 앞으로 군대도 가야하고 졸업도 하고 취업도 해야합니다. 그렇기에 지금 저에게 맞는 목표를 설정중입니다. 인문학을 공부하면서 삶의 지혜와 삶의 의미를 탐구하고 있습니다.</p>
+        
+      `,
+      favoritebook: `
+        <h2>Favorite Book</h2>
+        <ul>
+          <li> 행복의 기원 – 서은국</li>
+          <p>행복이 무엇인지, 행복이 어떻게 생겨나는지, 그리고 행복을 어떻게 유지할 수 있는지에 대한 탐구를 담고 있습니다. 진화론적 관점에서 행복을 저술해 자신의 삶에서 더 큰 행복을 찾을 수 있도록 돕습니다.</p>
+          <li>사피엔스 – 유발하라리 </li>
+          <p>인류 즉 호모사피엔스의 역사와 발전을 탐구하며, 호모사피엔스의 진화과정과 현 인류의 사고와 행동의 경향을 접목시켜 인류를 이해하는데 큰 도움을 줍니다.</p>
+          <li> 시지프 신화 – 알베르 카뮈</li>
+          <p>시지프 신화의 유명한 구절인 "이리하여 나는 부조리에서 세 가지 귀결을 이끌어 낸다. 그것은 바로 나의 반항, 나의 자유 그리고 나의 열정이다. 
+            오직 의식의 활동을 통해 나는 죽음으로의 초대였던 것을 삶의 법칙으로 바꾸어 놓는다. 그래서 나는 자살을 거부한다."에서 큰 영감을 받았습니다. 의미를 추구하는 인간과 무의미의 우주를 인식했을 때의 삶을 살아갈 방법을 제시해 줍시다. </p>
+        </ul>
+      `,
+      hobby: `
+        <h2>Hobby</h2>
+        <img src="jamesharden.WEBP" alt="제임스 하든" style="max-width:200px; border-radius:0;">
+        <p>저는 농구를 보는것도 하는것도 굉장히 좋아합니다. 저의 주 포지션은 포인트 가드 입니다. 포인트 가드란, 공격의 템포를 전체적으로 조율하고 넓은 시야를 바탕으로 패스를 뿌려주거나 중거리 슛을 담당합니다. 좋아하는 NBA선수는 제임스 하든 입니다.
+            제임스 하든도 포인트 가드로 주로 많이 뜁니다. 휴스턴 로켓츠에서 전성기를 보냈고. 그시절 NBA 득점 전체 1위와 도움 전체 1위를 한 전적이 있습니다.
+            지금은 예전보다 폼은 많이 떨어졌지만 클리블랜드 캐벌리어스에서 꾸준히 좋은 모습을 보여주고 있습니다. </p>
+      `
+    };
+
+    function navigate(page) {
+      const content = document.getElementById('content');
+      content.innerHTML = pages[page] || '<p>페이지를 찾을 수 없습니다.</p>';
+    }
+
+
+    navigate('introduce');
+  </script>
+</body>
+</html>
